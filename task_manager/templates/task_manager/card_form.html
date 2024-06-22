@@ -1,0 +1,17 @@
+
+{% extends 'task_manager/index.html' %}
+{% block content %}
+<div class="form-create">
+<div class="header-bar">
+  <b class="btn btn-primary"><a href="{% url 'list_list' %}">&#8592; Артка кайтуу</a></b>
+</div>
+<div class="create_card">
+  <h1>Create Card</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input class="button" type="submit" value="Тузуу" id="btn-form">
+  </form>
+</div>
+</div>  
+{% endblock %}

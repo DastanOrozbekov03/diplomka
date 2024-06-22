@@ -1,0 +1,16 @@
+{% extends 'task_manager/index.html' %}
+{% block content %}
+<div class="form-create">
+  <div class="header-bar">
+    <a href="{% url 'board_list' %} " id="back_go">&#8592; Артка кайтуу</a>
+  </div>
+
+  <div class="create_card">
+    <form method="POST" class="method-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input class="button" type="submit" value="Тузуу" id="btn-form">
+    </form>
+  </div>  
+</div>
+{% endblock content %}

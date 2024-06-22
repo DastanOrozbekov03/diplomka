@@ -1,0 +1,63 @@
+<!-- not_authenticated.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Катталган эмес</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            background: #2e5c7a;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(194, 9, 9, 0.8);
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px #000;
+            font-family: 'Impact', sans-serif;
+            letter-spacing: 2px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff0000, #8b0000);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        a:hover {
+            background: linear-gradient(45deg, #8b0000, #ff0000);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ой, Сиз катталган эмессиз </h1>
+        <p>кайтадан <a href="{% url 'login' %}">кирууго</a> же <a href="{% url 'register' %}">катталууга </a>аракет кылыныз.</p>
+    </div>
+</body>
+</html>

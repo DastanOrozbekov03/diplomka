@@ -1,0 +1,521 @@
+
+body{
+    /* background-color: rgb(71, 105, 179); */
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Slab", serif;
+    font-style: normal;
+    height: 100vh;
+}
+header{
+    border-bottom: 1px solid rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #ffeeee;
+    color: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.head-title {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: #00ffff;
+    margin: 0;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff, 0 0 25px #00ffff, 0 0 30px #00ffff;
+    animation: color-change 3s infinite;
+}
+
+@keyframes color-change {
+    0% {
+        color: #00ffff;
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff, 0 0 25px #00ffff, 0 0 30px #00ffff;
+    }
+    15% {
+        color: #ff00ff;
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff, 0 0 30px #ff00ff;
+    }
+    50% {
+        color: #00ff00;
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00, 0 0 25px #00ff00, 0 0 30px #00ff00;
+    }
+    75% {
+        color: #ffff00;
+        text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 15px #ffff00, 0 0 20px #ffff00, 0 0 25px #ffff00, 0 0 30px #ffff00;
+    }
+    100% {
+        color: #00ffff;
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff, 0 0 25px #00ffff, 0 0 30px #00ffff;
+    }
+}
+
+.main-container {
+    /* background-image: url(../images/heroscreen.jpg); */
+    background-color: #2e5c7a;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* position: fixed; */
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* board */
+.board-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #e0e0e0;
+}
+
+.board-card {
+    background: linear-gradient(145deg, #333, #444);
+    border-radius: 10px;
+    width: 330px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 10px;
+}
+
+.board-card:hover {
+    transform: translateX(10px);
+    transform: translateY(10px);
+    cursor: pointer;
+}
+
+#add-board-card {
+    background: inherit;
+    border: 2px solid #ffffff;
+    border-style: dashed;
+    box-shadow: unset;
+    text-align: center;
+    width: 326px;
+}
+
+#add-board-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+#add-board-card .add-icon {
+    background: unset;
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.board-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    align-items: center;
+    border-bottom: 2px solid #00ffff;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+}
+
+.board-row h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.board-row a {
+    color: #e76fe1;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.add-icon {
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.empty-card {
+    background: inherit;
+    border: 2px solid #ffffff;
+    border-style: dashed;
+    box-shadow: unset;
+    text-align: center;
+    width: 326px;
+}
+
+.empty-card:hover {
+    background-color: #c4c9d1;
+}
+
+
+
+/* боковая панель */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    z-index: 2;
+    position: relative;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+#mainContent {
+    transition: margin-left .5s;
+    padding: 16px;
+    text-align: center;
+    background-color: #c59595;
+}
+
+
+/* Container for lists */
+.list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+}
+
+.list_task-card {
+    background: linear-gradient(145deg, #333, #444);
+    border-radius: 10px;
+    width: 300px;
+    padding: 20px 5px 0px 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px 10px 15px 10px;
+    
+}
+
+/* Individual list card */
+.list-card {
+    background: linear-gradient(145deg, #333, #444);
+    border-radius: 10px;
+    width: 270px;
+    padding: 20px 5px 0px 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px 10px 15px 10px;
+    align-items: center;
+}
+
+.list-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 255, 0.7);
+}
+
+/* List header */
+#list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #00ffff;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+#list-header h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: #00ffff;
+}
+
+#list-header a {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+#list-header a:hover {
+    color: #ff1a1a;
+}
+
+/* Card inside list */
+.card {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 0, 255, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    margin-left: 50px;
+}
+
+.card-title {
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    flex-grow: 1;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.card-title:hover {
+    color: #00ffff;
+}
+
+/* No cards available message */
+.no-cards {
+    color: #757575;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Add card button */
+.add-card {
+    background-color: #00ffff;
+    color: #1c1c1c;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.add-card:hover {
+    background-color: #00b3b3;
+    color: #fff;
+}
+
+/* Empty card for adding new list */
+.empty-card {
+    background: inherit;
+    border: 2px solid #ffffff;
+    border-style: dashed;
+    box-shadow: unset;
+    text-align: center;
+    width: 326px;
+    display: flex;
+    justify-content: center;
+    padding: 0
+}
+
+.empty-card:hover {
+    background-color: #333;
+    border-color: #00b3b3;
+}
+
+/* Add icon inside empty card */
+.add-icon {
+    font-size: 30px;
+    color: #00ffff;
+    transition: color 0.3s ease;
+}
+
+.add-icon:hover {
+    color: #00b3b3;
+}
+
+
+/* modal fade */
+.modal {
+    display: block;
+    z-index: 150;
+}
+.modal-backdrop {
+    display: none;
+    z-index: 140;
+}
+.modal-content{
+    background-color: #ffffff;
+    border: 1px solid #bd7676;
+    color: #000000;
+    margin-top: 200px;
+    width: 330px;
+    height: 500px;
+}
+
+.modal-header .close {
+    color: rgb(255, 0, 0);
+    text-shadow: none;
+    opacity: 1;
+}
+
+.modal-body {
+    padding: 20px;
+    background-color: #2e5c7a;
+    border-radius: 10px;
+}
+
+.modal-footer {
+    border-top: 1px solid #000000;
+    border-radius: 10px;
+    background-color: #2e5c7a;
+}
+
+.modal-footer .btn:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 255, 0.7);
+}
+
+
+/* forms */
+.form-create {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: baseline;
+    width: 460px;
+    height: 800px;
+    background-color: #597da7;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 255, 255, 0.5);
+    flex-direction: row;
+    margin: auto;
+}   
+.method-form{
+    background-color: rgb(255, 130, 130);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 255, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.method-form p{
+    padding: 10px;
+    color: #000000;
+    border-radius: 10px;
+}
+.method-form p :hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 255, 0.7);    
+}
+.method-form input{
+    width: 100%;
+    border-radius: 10px;
+    color: red;
+}
+.method-form #id_visibility{
+    cursor: pointer;
+}
+.method-form #id_assign_users{
+    cursor: pointer;
+    width: 100%;
+}
+
+#btn-form {
+    width: 70px;
+}
+
+#list-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: space-around;
+    justify-content: center;
+}
+
+.delete-form{
+    background-color: #757575;
+    width: 400px;
+    height: 500px;
+    max-width: 1500px;   
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-left: 200px;
+    box-shadow: -5px 7px 20px 4px rgb(255 0 0 / 50%), -1px 6px 5px rgb(255 0 255 / 30%);
+}
+
+
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: calc(100% - -20%); /* учитывает ширину кнопки */
+    box-sizing: border-box;
+    left: 50px; /* отодвигает текст от кнопки */
+}
+
+.marquee-text {
+    display: inline-block;
+    font-size: 24px;
+    color: #ff6347;
+    font-weight: bold;
+    animation: marquee 5s linear infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #ff6347, #ff4500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.marquee-text:hover {
+    animation-play-state: paused; /* Останавливает анимацию при наведении */
+    color: #ff4500; /* Изменяет цвет текста при наведении */
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+}
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+#back_go{
+    color: #fafcff;
+    text-decoration: none;
+    background-color: #0c0000;
+}

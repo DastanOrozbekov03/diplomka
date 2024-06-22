@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тапшырмалар</title>
+    <link rel="stylesheet" href="{% static 'task_manager/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'task_manager/css/inline.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{% static 'task_manager/js/script.js' %}"></script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</head>
+<body>
+    <header>
+        <div class="marquee-container">
+        <button class="openbtn" onclick="openNav()">&#9776;</button>
+            <span class="marquee-text">Оз убактынды башкар!!!</span>
+        </div>
+    </header>
+    <div class="main-container">  
+        <div class="sidebar" id="mySidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            {% if user.is_authenticated %}
+            <p style="color: white; padding: 10px 15px;">Салам, {{ user.name }}</p>
+            <a href="{% url 'logout' %}">Чыгуу</a>
+            <a href="{% url 'change_password' %}">Сырсөздү өзгөртүү</a>
+            {% else %}
+            <a href="{% url 'register' %}">Катталуу</a>
+            <a href="{% url 'login' %}">Кирүү</a>
+            {% endif %}
+            <a href="{% url 'board_list' %}">Такталар</a>
+            <a href="{% url 'list_list' %}">Баракчалар</a>
+        </div>
+        <div id="mainContent" class="container">
+            {% block content %} {% endblock content %}
+        </div>
+    </div>
+</body>
+</html>

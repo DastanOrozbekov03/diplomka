@@ -1,0 +1,13 @@
+{% extends 'task_manager/index.html' %}
+{% block content %}
+
+<div class="board-body">
+    <h1>Сиз  "{{ card.title }}" тапшырмасын өчүрүүнү каалайсызбы?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Өчүрүү">
+    </form>
+    <a href="{% url 'list_list' %}"><input type="submit" value="Жок"></a>
+</div>
+
+{% endblock content %}

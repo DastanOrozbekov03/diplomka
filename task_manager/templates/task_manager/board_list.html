@@ -1,0 +1,24 @@
+{% extends 'task_manager/index.html' %}
+
+{% block content %}
+<div class="head-title"><h1>Такталар</h1></div>
+<!-- <a href="{% url 'board_create' %}" class="add-icon"><b class="btn btn-primary">+</b></a> -->
+<div class="board-container">
+    {% for board in boards %}
+    <div class="board-card">
+        <div class="board-row">
+            <h4><a href="{% url 'list_list' %}">{{ board.title }}</a></h4>
+            <a href="{% url 'board_delete' board.id %}" >&#215;Delete</a>
+        </div>
+    </div>
+    {% empty %}
+    <p>Азырынча такталар тузуло элек, тузуу учун + белгисин басыныз</p>
+    {% endfor %}
+    <!-- Пустая доска для добавления новой доски -->
+    <div class="board-card" id="add-board-card">
+        <a href="{% url 'board_create' %}">
+            <span class="add-icon">+</span>
+        </a>
+    </div>
+</div>
+{% endblock content %}

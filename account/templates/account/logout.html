@@ -1,0 +1,11 @@
+{% extends 'account/main.html' %}
+{% load static %}
+{% block content %}
+    <h2>Чыгуу</h2>
+    <p>Сиз чын эле аккаунттан чыгууну каалайсызбы?</p>
+    <form action="{% url 'user_logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Чыгуу</button>
+    </form>
+    <b class="btn btn-primary"><a href="{% url 'list_list' %}">&#8592; Артка кайтуу</a></b>
+{% endblock content %}

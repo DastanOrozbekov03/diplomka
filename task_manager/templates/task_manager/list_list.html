@@ -1,0 +1,55 @@
+{% extends 'task_manager/index.html' %}
+
+{% block content %}
+    <div class="head-title"><h1>Баракчалар</h1></div>
+    <!-- <a href="{% url 'list_create' %}" class="add-icon"><b class="btn btn-primary">+</b></a> -->
+    <div class="list-container">
+        {% for list_item in lists %}
+            <div class="list_task-card">
+                <div id="list-header">
+                    <h2>{{ list_item.title }}</h2>
+                    <a href="{% url 'list_delete' list_item.id %}" class="delete-link">&#215;</a> 
+                </div> 
+                <div class="list-row">
+                    <!-- Кнопка для создания новой карточки -->                  
+                    <!-- Цикл для отображения карточек -->
+                    {% for card in list_item.cards.all %}
+                        <div class="list-card">
+                            <span class="card-title" data-toggle="modal" data-target="#modal-{{ card.id }}">{{ card.title }}</span>
+                            <a href="{% url 'card_delete' card.id %}" class="btn btn-danger">Өчүрүү</a>
+                        </div>
+                
+                        <!-- Модальное окно для этой карточки -->
+                        <div class="modal fade" id="modal-{{ card.id }}" tabindex="-1" role="dialog" aria-labelledby="modalLabel-{{ card.id }}" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalLabel-{{ card.id }}">{{ card.title }}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Жабуу">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="description">{{ card.description }}</div>
+                                        <p>тэг {{ card.tag }}</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Жабуу</button>
+                                    </div>
+                                </div>
+                            </div>   
+                        </div>
+                        {% empty %}
+                        <p class="no-cards">Тапшырмалар жок.</p>
+                        {% endfor %}
+                </div> 
+                <div class="add-card"><a href="{% url 'card_create' list_item.id %}"> <b class="btn btn-primary">&#x2b;</b> Тапшырманы кошуу </a></div>    
+            </div> 
+            {% empty %} 
+            <p><p>Азырынча ,баракчалар тузуло элек, тузуу учун + белгисин басыныз</p></p>
+            {% endfor %}
+            <div class="list-card empty-card" id="empty-card">
+                <a href="{% url 'list_create' %}" class="add-icon">+</a>
+            </div>
+        </div>
+{% endblock %}
